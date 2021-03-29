@@ -18,7 +18,6 @@ class CreateAlbumsTable extends Migration
             'albums',
             function (Blueprint $table) {
                 $table->id();
-                $table->timestamps();
 
                 // -- Fields
                 $table->string('title')->unique();
