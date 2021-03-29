@@ -1,0 +1,32 @@
+/* ./resources/css/app.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.table-fixed {
+    thead, tbody {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+        @apply shadow-sm;
+    }
+
+    tbody {
+        @apply h-72 overflow-scroll;
+
+        tr {
+            @apply hover:bg-gray-50;
+        }
+    }
+
+    th, td {
+        @apply py-4 px-6 border-b border-gray-50;
+    }
+}
+
+
+.btn {
+    @apply text-gray-800 font-bold py-1 px-3 rounded text-xs;
+}
