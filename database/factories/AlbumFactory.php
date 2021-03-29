@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
+use App\Models\Album;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Str;
 
 /**
- * Class UserFactory
+ * Class AlbumFactory
  *
  * @package Database\Factories
  */
-class UserFactory extends Factory
+class AlbumFactory extends Factory
 {
     use WithFaker;
 
@@ -21,7 +21,7 @@ class UserFactory extends Factory
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Album::class;
 
     /**
      * Define the model's default state.
@@ -33,13 +33,8 @@ class UserFactory extends Factory
         $faker = $this->makeFaker('en_GB');
 
         return [
-            'name' => $faker->name,
-            'username' => $faker->userName,
-            'email' => $faker->safeEmail,
-            'address' => explode(PHP_EOL, $faker->address),
-            'phone' => $faker->phoneNumber,
-            'website' => $faker->safeEmailDomain,
-            'company' => ['name' => "{$faker->lastName} Industries"],
+            'title' => $faker->words(3, true),
+            'user_id' => User::factory()->create()->id,
         ];
     }
 }

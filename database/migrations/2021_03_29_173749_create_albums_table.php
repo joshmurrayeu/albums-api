@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateAlbumsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,19 +15,16 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create(
-            'users',
+            'albums',
             function (Blueprint $table) {
                 $table->id();
                 $table->timestamps();
 
                 // -- Fields
-                $table->string('name');
-                $table->string('username');
-                $table->string('email')->unique();
-                $table->json('address');
-                $table->string('phone');
-                $table->string('website');
-                $table->json('company');
+                $table->string('title')->unique();
+
+                // -- Relationships
+                $table->foreignIdFor(User::class);
             }
         );
     }
@@ -38,6 +36,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('albums');
     }
 }

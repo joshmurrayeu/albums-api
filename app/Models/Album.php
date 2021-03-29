@@ -2,23 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class User
+ * Class Album
  *
  * @package App\Models
  */
-class User extends Model
+class Album extends Model
 {
     use HasFactory;
-    
-    /**
-     * @inheritDoc
-     */
-    protected $casts = [
-        'address' => 'array',
-        'company' => 'array',
-    ];
 }
