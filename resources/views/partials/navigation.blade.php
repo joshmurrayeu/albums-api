@@ -1,7 +1,7 @@
 <nav class="bg-gray-800 text-white">
     <div class="container px-2 mx-auto flex py-3">
         <div>
-            <p>albums-api</p>
+            <p><a href="{{ url('/') }}">albums-api</a></p>
         </div>
 
         <div class="ml-auto">

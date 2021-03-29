@@ -16,5 +16,6 @@ Route::prefix('albums')->group(
 Route::prefix('users')->group(
     function () {
         Route::get('{id}', 'UsersController@view');
+        Route::get('{id}/edit', 'UsersController@edit');
     }
 );

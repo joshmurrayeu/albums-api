@@ -23,4 +23,14 @@ class UsersController extends Controller
     {
         return view('users.view', ['id' => $request->route('id')]);
     }
+
+    /**
+     * @param Request $request
+     *
+     * @return Application|Factory|View
+     */
+    public function edit(Request $request)
+    {
+        return view('users.edit', ['id' => $request->route('id')]);
+    }
 }

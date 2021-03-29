@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white shadow-md rounded my-6">
+    <card>
         <table class="table-fixed text-left w-full border-collapse">
             <thead>
             <tr class="w-full">
@@ -9,19 +9,24 @@
             </thead>
             <tbody>
             <tr v-for="album in albums" :key="album.id">
-                <td class="w-8/12">{{ album.attributes.title }}</td>
-                <td class="w-4/12 text-right">
-                    <a :href="albumUri(album.id)" class="btn bg-green-200">Edit</a>
+                <td class="">{{ album.attributes.title }}</td>
+                <td class="w-20 text-right">
                     <a :href="albumUri(album.id)" class="btn bg-blue-200">View</a>
                 </td>
             </tr>
             </tbody>
         </table>
-    </div>
+    </card>
 </template>
 
 <script>
+import Card from './Card'
+
 export default {
+    components: {
+        Card,
+    },
+    props: ['albums'],
     data() {
         return {
             albums: {},
@@ -30,10 +35,12 @@ export default {
     mounted() {
         let vm = this;
 
-        // Get the albums from the API
-        window.axios.get('http://albums-api.test/api/v1/albums').then((response) => {
-            vm.albums = response.data.data;
-        });
+        // Get the albums from the API if none have been passed in
+        if (typeof this.albums == 'undefined') {
+            window.axios.get('http://albums-api.test/api/v1/albums').then((response) => {
+                vm.albums = response.data.data;
+            });
+        }
     },
     methods: {
         albumUri(id) {

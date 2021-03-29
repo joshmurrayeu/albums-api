@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white shadow-md rounded my-6">
+    <card>
         <table class="table-fixed text-left w-full border-collapse">
             <thead>
             <tr class="w-full">
@@ -11,17 +11,22 @@
             <tr v-for="user in users" :key="user.id">
                 <td>{{ user.attributes.name }}</td>
                 <td class="text-right ml-auto">
-                    <a :href="userUri(user.id)" class="btn bg-green-200">Edit</a>
+                    <a :href="userUri(user.id, 'edit')" class="btn bg-green-200">Edit</a>
                     <a :href="userUri(user.id)" class="btn bg-blue-200">View</a>
                 </td>
             </tr>
             </tbody>
         </table>
-    </div>
+    </card>
 </template>
 
 <script>
+import Card from './Card'
+
 export default {
+    components: {
+        Card,
+    },
     data() {
         return {
             users: {},
@@ -36,8 +41,8 @@ export default {
         });
     },
     methods: {
-        userUri(id) {
-            return 'http://albums-api.test/albums/' + id;
+        userUri(id, action = '') {
+            return 'http://albums-api.test/users/' + id + '/' + action;
         }
     },
 }

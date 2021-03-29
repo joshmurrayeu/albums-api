@@ -22,11 +22,20 @@
     }
 
     th, td {
-        @apply py-4 px-6 border-b border-gray-50;
+        @apply w-full py-3 px-5 border-b border-gray-50;
     }
 }
 
-
 .btn {
     @apply text-gray-800 font-bold py-1 px-3 rounded text-xs;
+}
+
+form {
+    label {
+        @apply text-gray-600 font-bold text-sm uppercase;
+    }
+
+    input {
+        @apply border rounded w-full;
+    }
 }

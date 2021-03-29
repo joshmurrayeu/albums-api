@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white shadow-md rounded my-6 p-2">
+    <card>
         <h1 class="text-2xl">{{ this.album.attributes.title }}</h1>
 
         <hr class="my-2">
@@ -14,11 +14,16 @@
             This user has the following albums:
             <a :href="userUri(this.user.id)" class="text-blue-300">{{ this.user.attributes.name }}</a>.
         </p>
-    </div>
+    </card>
 </template>
 
 <script>
+import Card from './Card'
+
 export default {
+    components: {
+        Card,
+    },
     props: ['id'],
     data() {
         return {
