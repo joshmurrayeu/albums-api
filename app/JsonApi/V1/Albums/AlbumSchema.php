@@ -7,6 +7,7 @@ use App\Models\Album;
 use LaravelJsonApi\Eloquent\Fields\ID;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsTo;
 use LaravelJsonApi\Eloquent\Fields\Str;
+use LaravelJsonApi\Eloquent\Filters\Where;
 
 /**
  * Class AlbumSchema
@@ -36,5 +37,18 @@ class AlbumSchema extends Schema
 
             Str::make('title'),
         ];
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function filters(): array
+    {
+        return array_merge(
+            [
+                Where::make('user', 'user_id'),
+            ],
+            parent::filters()
+        );
     }
 }

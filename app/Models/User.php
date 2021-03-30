@@ -18,6 +18,19 @@ class User extends Model
     /**
      * @inheritDoc
      */
+    protected $fillable = [
+        'name',
+        'username',
+        'email',
+        'address',
+        'phone',
+        'website',
+        'company',
+    ];
+
+    /**
+     * @inheritDoc
+     */
     protected $casts = [
         'address' => 'array',
         'company' => 'array',

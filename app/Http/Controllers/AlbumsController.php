@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
+use LaravelJsonApi\Laravel\Http\Controllers\Actions;
 
 /**
  * Class AlbumsController
@@ -14,13 +11,6 @@ use Illuminate\Http\Request;
  */
 class AlbumsController extends Controller
 {
-    /**
-     * @param Request $request
-     *
-     * @return Application|Factory|View
-     */
-    public function view(Request $request)
-    {
-        return view('albums.view', ['id' => $request->route('id')]);
-    }
+    use Actions\FetchMany;
+    use Actions\FetchOne;
 }
