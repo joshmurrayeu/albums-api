@@ -1,13 +1,15 @@
 <?php
 
+use App\Http\Controllers\AlbumsController;
+use App\Http\Controllers\UsersController;
 use LaravelJsonApi\Laravel\Facades\JsonApiRoute;
-use LaravelJsonApi\Laravel\Http\Controllers\JsonApiController;
+use LaravelJsonApi\Laravel\Routing\ResourceRegistrar;
 
 JsonApiRoute::server('v1')
     ->prefix('v1')
     ->resources(
-        function ($server) {
-            $server->resource('albums', JsonApiController::class);
-            $server->resource('users', JsonApiController::class);
+        function (ResourceRegistrar $server) {
+            $server->resource('albums', AlbumsController::class)->readOnly();
+            $server->resource('users', UsersController::class)->only('index', 'read', 'update');
         }
     );
