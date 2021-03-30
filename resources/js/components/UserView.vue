@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import AlbumTable from "./AlbumTable";
-import Card from "./Card";
+import AlbumTable from "../../../../albums-ui/src/components/AlbumTable";
+import Card from "../../../../albums-ui/src/components/misc/Card";
 
 export default {
     components: {

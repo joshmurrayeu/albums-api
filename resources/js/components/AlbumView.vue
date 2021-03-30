@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Card from './Card'
+import Card from '../../../../albums-ui/src/components/misc/Card'
 
 export default {
     components: {

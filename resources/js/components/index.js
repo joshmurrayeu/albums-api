@@ -1,14 +1,14 @@
 // -- Album components
-import AlbumTable from './AlbumTable';
+import AlbumTable from '../../../../albums-ui/src/components/AlbumTable';
 import AlbumView from './AlbumView';
 
 // -- User components
-import UserTable from './UserTable';
+import UserTable from '../../../../albums-ui/src/components/UserTable';
 import UserView from './UserView';
 import UserEdit from './UserEdit';
 
 // -- Misc components
-import Card from './Card'
+import Card from '../../../../albums-ui/src/components/misc/Card'
 
 export default {
     AlbumTable, AlbumView,
