@@ -34,7 +34,7 @@ class AlbumFactory extends Factory
 
         return [
             'title' => $faker->words(3, true),
-            'user_id' => User::factory()->create()->id,
+            'user_id' => rand(1, 10),
         ];
     }
 }
